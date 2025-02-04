@@ -1,10 +1,9 @@
-// middleware/auth.js
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
-    // El token se envía en el header: "Bearer <token>"
+    // El token se envia en el header: "Bearer <token>"
     const token = authHeader && authHeader.split(' ')[1];
 
     if (!token) return res.status(401).json({ message: 'Acceso denegado, token requerido' });
